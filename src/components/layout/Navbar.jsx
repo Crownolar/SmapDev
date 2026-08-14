@@ -75,7 +75,7 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <nav
-          className="hidden items-center gap-5 xl:flex"
+          className="hidden items-center gap-5 lg:flex"
           aria-label="Main navigation"
         >
 

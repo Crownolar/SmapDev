@@ -39,17 +39,17 @@ const Mentorship = () => {
       />
 
       {/* Introduction */}
-      <section className="bg-white py-20 sm:py-24 lg:py-28">
+      <section className="bg-white py-16 sm:py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
 
             <SectionHeading
               eyebrow="Our Approach"
               title="Knowledge grows when it is shared."
             />
 
-            <div className="space-y-5 text-base leading-8 text-smap-muted">
+            <div className="max-w-3xl space-y-5 text-base leading-7 text-smap-muted sm:leading-8">
               <p>
                 Mentorship provides an opportunity for experienced researchers
                 to share knowledge, perspective and practical experience with
@@ -75,7 +75,7 @@ const Mentorship = () => {
       </section>
 
       {/* Mentorship areas */}
-      <section className="bg-smap-surface py-20 sm:py-24 lg:py-28">
+      <section className="bg-smap-surface py-16 sm:py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
           <SectionHeading
@@ -84,22 +84,22 @@ const Mentorship = () => {
             description="Explore some of the areas where mentorship can help students and emerging researchers develop."
           />
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
+          <div className="mt-10 grid gap-5 sm:mt-12 sm:grid-cols-2 sm:gap-6">
 
             {mentorshipAreas.map((item) => (
               <article
                 key={item.number}
-                className="rounded-2xl border border-slate-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-smap-green/30 hover:shadow-xl hover:shadow-slate-900/5 sm:p-8"
+                className="rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-smap-green/30 hover:shadow-xl hover:shadow-slate-900/5 sm:p-8"
               >
                 <span className="text-sm font-semibold text-smap-green">
                   {item.number}
                 </span>
 
-                <h2 className="mt-5 text-xl font-semibold text-smap-ink sm:text-2xl">
+                <h2 className="mt-4 text-xl font-semibold leading-snug text-smap-ink sm:mt-5 sm:text-2xl">
                   {item.title}
                 </h2>
 
-                <p className="mt-4 text-sm leading-7 text-smap-muted">
+                <p className="mt-3 text-sm leading-7 text-smap-muted sm:mt-4">
                   {item.description}
                 </p>
               </article>
@@ -111,26 +111,26 @@ const Mentorship = () => {
       </section>
 
       {/* Who it is for */}
-      <section className="bg-white py-20 sm:py-24 lg:py-28">
+      <section className="bg-white py-16 sm:py-20 lg:py-28">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
 
-          <div className="rounded-3xl bg-smap-ink p-8 sm:p-12 lg:p-16">
+          <div className="rounded-2xl bg-smap-ink p-6 sm:rounded-3xl sm:p-10 lg:p-16">
 
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-smap-green-light">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-smap-green-light sm:text-sm">
               Who It Is For
             </p>
 
-            <h2 className="mt-5 max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            <h2 className="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-tight text-white sm:mt-5 sm:text-4xl">
               For students and emerging researchers ready to learn.
             </h2>
 
-            <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300">
+            <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300 sm:mt-6 sm:leading-8">
               Mentorship can be valuable for students, early-career
               researchers and others developing an interest in sustainable
               materials, processes and environmental solutions.
             </p>
 
-            <div className="mt-8">
+            <div className="mt-7 sm:mt-8">
               <Button to="/contact">
                 Get in touch
               </Button>

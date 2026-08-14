@@ -39,17 +39,17 @@ const Collaboration = () => {
       />
 
       {/* Introduction */}
-      <section className="bg-white py-20 sm:py-24 lg:py-28">
+      <section className="bg-white py-16 sm:py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
 
             <SectionHeading
               eyebrow="Why Collaborate?"
               title="Different perspectives can create better solutions."
             />
 
-            <div className="space-y-5 text-base leading-8 text-smap-muted">
+            <div className="max-w-3xl space-y-5 text-base leading-7 text-smap-muted sm:leading-8">
               <p>
                 Sustainable challenges are complex and often require
                 knowledge from more than one discipline. Collaboration creates
@@ -76,7 +76,7 @@ const Collaboration = () => {
       </section>
 
       {/* Collaboration types */}
-      <section className="bg-smap-surface py-20 sm:py-24 lg:py-28">
+      <section className="bg-smap-surface py-16 sm:py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
           <SectionHeading
@@ -85,22 +85,22 @@ const Collaboration = () => {
             description="There are different ways researchers, institutions and organisations can engage with SMAPDEV."
           />
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
+          <div className="mt-10 grid gap-5 sm:mt-12 sm:grid-cols-2 sm:gap-6">
 
             {collaborationTypes.map((item) => (
               <article
                 key={item.number}
-                className="group rounded-2xl border border-slate-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-smap-green/30 hover:shadow-xl hover:shadow-slate-900/5 sm:p-8"
+                className="group rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-smap-green/30 hover:shadow-xl hover:shadow-slate-900/5 sm:p-8"
               >
                 <span className="text-sm font-semibold text-smap-green">
                   {item.number}
                 </span>
 
-                <h2 className="mt-5 text-xl font-semibold text-smap-ink sm:text-2xl">
+                <h2 className="mt-4 text-xl font-semibold leading-snug text-smap-ink sm:mt-5 sm:text-2xl">
                   {item.title}
                 </h2>
 
-                <p className="mt-4 max-w-xl text-sm leading-7 text-smap-muted">
+                <p className="mt-3 max-w-xl text-sm leading-7 text-smap-muted sm:mt-4">
                   {item.description}
                 </p>
               </article>
@@ -112,23 +112,23 @@ const Collaboration = () => {
       </section>
 
       {/* CTA */}
-      <section className="bg-white py-20 sm:py-24 lg:py-28">
+      <section className="bg-white py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
 
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-smap-green">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-smap-green sm:text-sm">
             Start a Conversation
           </p>
 
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-smap-ink sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-tight text-smap-ink sm:mt-4 sm:text-4xl">
             Have an idea for collaboration?
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-smap-muted">
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-smap-muted sm:mt-5 sm:text-lg">
             Tell us about your research interests, organisation or
             collaboration idea and let's explore what we can build together.
           </p>
 
-          <div className="mt-8">
+          <div className="mt-7 sm:mt-8">
             <Button to="/contact">
               Get in touch
             </Button>
