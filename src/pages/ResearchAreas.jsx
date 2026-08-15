@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import PageHero from "../components/common/PageHero";
-import SectionHeading from "../components/common/SectionHeading";
-import { researchAreas } from "../data/researchAreas";
+import { Link } from 'react-router-dom'
+import PageHero from '../components/common/PageHero'
+import SectionHeading from '../components/common/SectionHeading'
+import { researchAreas } from '../data/researchAreas'
 
 const ResearchAreas = () => {
   return (
@@ -22,11 +22,13 @@ const ResearchAreas = () => {
           />
 
           <div className="mt-10 space-y-6 sm:mt-12 lg:mt-14 lg:space-y-8">
+
             {researchAreas.map((research) => (
               <article
                 key={research.id}
                 className="overflow-hidden rounded-2xl border border-slate-200 bg-smap-surface sm:rounded-3xl"
               >
+
                 <div className="grid lg:grid-cols-[0.35fr_1fr]">
 
                   {/* Category */}
@@ -40,7 +42,7 @@ const ResearchAreas = () => {
                       {research.title}
                     </h2>
 
-                    <p className="mt-4 max-w-xl text-sm leading-7 text-slate-400 sm:mt-5">
+                    <p className="mt-4 max-w-xl text-sm leading-7 text-slate-400 sm:mt-5 sm:text-base sm:leading-8">
                       {research.description}
                     </p>
 
@@ -52,10 +54,13 @@ const ResearchAreas = () => {
                     <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-10">
 
                       {research.areas.map((area, index) => (
-                        <div key={area.title}>
+                        <div
+                          key={area.title}
+                          className="border-l-2 border-smap-green/20 pl-4"
+                        >
 
                           <span className="text-xs font-semibold text-smap-green">
-                            {String(index + 1).padStart(2, "0")}
+                            {String(index + 1).padStart(2, '0')}
                           </span>
 
                           <h3 className="mt-2 text-lg font-semibold leading-snug text-smap-ink sm:mt-3">
@@ -76,6 +81,7 @@ const ResearchAreas = () => {
                 </div>
               </article>
             ))}
+
           </div>
 
         </div>
@@ -108,7 +114,7 @@ const ResearchAreas = () => {
         </div>
       </section>
     </>
-  );
-};
+  )
+}
 
-export default ResearchAreas;
+export default ResearchAreas

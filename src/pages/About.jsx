@@ -23,6 +23,33 @@ const approachItems = [
   },
 ]
 
+const coreValues = [
+  {
+    number: '01',
+    title: 'Excellence',
+    description:
+      'We are committed to achieving excellence in our research, ensuring that every effort is characterized by precision, thoroughness, and a dedication to high standards.',
+  },
+  {
+    number: '02',
+    title: 'Innovation',
+    description:
+      'Innovation is at the core of SMAPDEV. We embrace creativity, promote unconventional thinking, and aim to lead in ground-breaking discoveries in sustainable technology.',
+  },
+  {
+    number: '03',
+    title: 'Collaboration',
+    description:
+      'SMAPDEV flourishes through collaboration. We understand the value of diversity and actively pursue partnerships with industry, academia, and other research institutions to enhance the impact of our work.',
+  },
+  {
+    number: '04',
+    title: 'Sustainability',
+    description:
+      'Our dedication to sustainability extends beyond research; it is embedded in our everyday practices. We advocate for responsible and ethical conduct, ensuring that our actions are in line with our mission.',
+  },
+]
+
 const About = () => {
   return (
     <>
@@ -78,7 +105,107 @@ const About = () => {
         </div>
       </section>
 
-      {/* Our approach */}
+      {/* Mission & Vision */}
+      <section className="bg-smap-surface py-16 sm:py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+          <SectionHeading
+            eyebrow="Our Purpose"
+            title="Research guided by purpose and a long-term vision."
+            description="SMAPDEV is committed to advancing sustainable material and process development through research, collaboration and knowledge sharing."
+          />
+
+          <div className="mt-10 grid gap-6 lg:mt-12 lg:grid-cols-2">
+
+            {/* Mission */}
+            <article className="rounded-3xl bg-smap-ink p-7 sm:p-9 lg:p-12">
+
+              <span className="text-sm font-semibold uppercase tracking-[0.18em] text-smap-green-light">
+                Mission
+              </span>
+
+              <h2 className="mt-5 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+                Advancing sustainable material and process development.
+              </h2>
+
+              <p className="mt-5 text-sm leading-7 text-slate-300 sm:text-base sm:leading-8">
+                The SMAPDEV Research Network is fundamentally committed to
+                advancing sustainable material and process development
+                through thoughtful research, collaborative efforts, and the
+                sharing of knowledge. Our mission is to drive positive change
+                by fostering innovation that aligns with our values of
+                community service and environmental stewardship.
+              </p>
+
+            </article>
+
+            {/* Vision */}
+            <article className="rounded-3xl border border-slate-200 bg-white p-7 sm:p-9 lg:p-12">
+
+              <span className="text-sm font-semibold uppercase tracking-[0.18em] text-smap-green">
+                Vision
+              </span>
+
+              <h2 className="mt-5 text-2xl font-semibold tracking-tight text-smap-ink sm:text-3xl">
+                Advancing sustainable solutions for a stronger future.
+              </h2>
+
+              <p className="mt-5 text-sm leading-7 text-smap-muted sm:text-base sm:leading-8">
+                Our vision goes beyond traditional research. SMAPDEV aims
+                to be a global leader, advancing sustainable solutions. In
+                our envisioned society, the use of innovative and
+                sustainable materials and processes meets current needs
+                while paving the way for a strong and peaceful future.
+                We aspire for our initiatives to inspire and support the
+                shift towards sustainable living.
+              </p>
+
+            </article>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* Core Values */}
+      <section className="bg-white py-16 sm:py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+          <SectionHeading
+            eyebrow="Core Values"
+            title="Principles that shape how we work."
+            description="Our research and collaborations are guided by four principles that influence how we pursue knowledge, innovation and impact."
+          />
+
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:mt-12 lg:grid-cols-4 lg:gap-6">
+
+            {coreValues.map((value) => (
+              <article
+                key={value.number}
+                className="rounded-2xl border border-slate-200 bg-smap-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-smap-green/30 hover:shadow-lg hover:shadow-slate-900/5 sm:p-7"
+              >
+
+                <span className="text-sm font-semibold text-smap-green">
+                  {value.number}
+                </span>
+
+                <h2 className="mt-5 text-xl font-semibold text-smap-ink">
+                  {value.title}
+                </h2>
+
+                <p className="mt-3 text-sm leading-7 text-smap-muted">
+                  {value.description}
+                </p>
+
+              </article>
+            ))}
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* Our Approach */}
       <section className="bg-smap-surface py-16 sm:py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
@@ -95,6 +222,7 @@ const About = () => {
                 key={item.number}
                 className="rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-slate-900/5 sm:p-7"
               >
+
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-smap-green-light text-sm font-bold text-smap-green">
                   {item.number}
                 </div>
@@ -106,6 +234,7 @@ const About = () => {
                 <p className="mt-3 text-sm leading-7 text-smap-muted">
                   {item.description}
                 </p>
+
               </article>
             ))}
 
@@ -114,8 +243,92 @@ const About = () => {
         </div>
       </section>
 
+      {/* Achievements */}
+      <section className="bg-white py-16 sm:py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+          <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
+
+            <SectionHeading
+              eyebrow="Achievements"
+              title="Research translated into meaningful innovation."
+              description="SMAPDEV's work demonstrates a sustained commitment to material development, environmental sustainability and practical research impact."
+            />
+
+            <div className="space-y-6">
+
+              <article className="rounded-2xl border border-slate-200 bg-smap-surface p-6 sm:p-8">
+
+                <span className="text-sm font-semibold text-smap-green">
+                  Materials Innovation
+                </span>
+
+                <h2 className="mt-4 text-xl font-semibold text-smap-ink sm:text-2xl">
+                  Solvated polystyrene resin as an alternative to epoxy resin
+                </h2>
+
+                <p className="mt-4 text-sm leading-7 text-smap-muted sm:text-base sm:leading-8">
+                  One of SMAPDEV's significant achievements has been the
+                  successful utilization of solvated polystyrene resin as a
+                  substitute for epoxy resin in composite development. This
+                  work has resulted in more than 50 recent publications and
+                  has also led to the filing of patents, including a patent
+                  that has advanced toward development for ballistic
+                  applications.
+                </p>
+
+              </article>
+
+              <article className="rounded-2xl border border-slate-200 bg-smap-surface p-6 sm:p-8">
+
+                <span className="text-sm font-semibold text-smap-green">
+                  Environmental Research
+                </span>
+
+                <h2 className="mt-4 text-xl font-semibold text-smap-ink sm:text-2xl">
+                  Biomass carbonization and co-carbonization
+                </h2>
+
+                <p className="mt-4 text-sm leading-7 text-smap-muted sm:text-base sm:leading-8">
+                  SMAPDEV's environmental sustainability and pollution
+                  management research includes extensive work in biomass
+                  carbonization and biomass-plastic co-carbonization. The
+                  network achieved the distinction of being the first
+                  globally to successfully attempt biomass-plastic
+                  co-carbonization.
+                </p>
+
+              </article>
+
+              <article className="rounded-2xl border border-slate-200 bg-smap-surface p-6 sm:p-8">
+
+                <span className="text-sm font-semibold text-smap-green">
+                  Research Impact
+                </span>
+
+                <h2 className="mt-4 text-xl font-semibold text-smap-ink sm:text-2xl">
+                  Continued research and knowledge contribution
+                </h2>
+
+                <p className="mt-4 text-sm leading-7 text-smap-muted sm:text-base sm:leading-8">
+                  The network's in-depth study on retort-heated
+                  carbonization has resulted in more than 30 publications.
+                  These achievements represent only part of SMAPDEV's
+                  ongoing efforts to contribute to sustainable material and
+                  process development.
+                </p>
+
+              </article>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
       {/* Call to action */}
-      <section className="bg-white py-16 sm:py-20 lg:py-24">
+      <section className="bg-smap-surface py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
 
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-smap-green sm:text-sm">

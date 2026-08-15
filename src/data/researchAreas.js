@@ -4,22 +4,22 @@ export const researchAreas = [
     number: '01',
     title: 'Sustainable Materials',
     description:
-      'Development of innovative, eco-friendly materials that reduce dependence on conventional resources while maintaining or improving performance.',
+      'SMAPDEV advances sustainable material development through research into renewable resources, innovative material systems, nanotechnology, recycling and circular-economy approaches.',
     areas: [
       {
         title: 'Bio-based Composites',
         description:
-          'Development of bio-based composite materials from renewable resources for sustainable applications.',
+          'Our research investigates bio-based composites as sustainable alternatives to conventional materials, with emphasis on eco-friendly, high-strength and lightweight materials derived from renewable resources.',
       },
       {
         title: 'Nanotechnology',
         description:
-          'Use of nanomaterials and nanotechnology to improve material performance and functionality.',
+          'We investigate the synthesis of nanoparticles and nanocomposites with specialized functions and applications, including electronics, water treatment and advanced composite materials.',
       },
       {
         title: 'Recycling and Circular Economy',
         description:
-          'Development of approaches that support material recovery, reuse and circular resource flows.',
+          'We investigate innovative recycling techniques and circular-economy strategies aimed at minimizing waste, improving resource efficiency and supporting sustainable, closed-loop material lifecycles.',
       },
     ],
   },
@@ -29,22 +29,22 @@ export const researchAreas = [
     number: '02',
     title: 'Advanced Processes',
     description:
-      'Development of efficient and environmentally responsible processes for manufacturing, energy production and sustainable industrial development.',
+      'SMAPDEV develops efficient and environmentally responsible processes for manufacturing, energy production and industrial applications, using innovation, modelling and process optimization.',
     areas: [
       {
         title: 'Green Manufacturing',
         description:
-          'Development of cleaner and more sustainable manufacturing processes that reduce environmental impact.',
+          'Our research explores environmentally friendly manufacturing techniques that reduce energy consumption, emissions and overall environmental impact while supporting more sustainable industrial practices.',
       },
       {
         title: 'Sustainable Energy Production',
         description:
-          'Exploration of sustainable approaches to energy production and conversion.',
+          'We investigate efficient and eco-friendly approaches to energy generation, storage and distribution, with particular attention to applications in underdeveloped and developing nations with limited or no access to electricity.',
       },
       {
         title: 'Process Optimization and Simulation',
         description:
-          'Application of modelling, simulation and optimization approaches to improve process efficiency.',
+          'We use computer-aided modelling, simulation and optimization to improve the efficiency and effectiveness of chemical processes and support more sustainable and resource-efficient industrial practices.',
       },
     ],
   },
@@ -54,22 +54,22 @@ export const researchAreas = [
     number: '03',
     title: 'Environmental Solutions',
     description:
-      'Development of sustainable technologies and approaches for pollution control, environmental remediation and protection of natural resources.',
+      'SMAPDEV develops sustainable technologies for pollution control, environmental remediation, water treatment and the protection and restoration of natural ecosystems.',
     areas: [
       {
         title: 'Water and Wastewater Treatment',
         description:
-          'Development of approaches for effective and sustainable treatment of water and wastewater.',
+          'Our research explores novel technologies and approaches for treating water and wastewater, reducing pollution, improving access to clean water and preserving aquatic ecosystems.',
       },
       {
         title: 'Lead Pollution and Remediation',
         description:
-          'Research into lead contamination, its environmental impacts and sustainable remediation approaches.',
+          'We develop sustainable approaches for lead detection, removal, recovery and remediation, including advanced adsorbents, nanomaterials and innovative treatment systems for contaminated environments.',
       },
       {
         title: 'Contaminated Site Remediation',
         description:
-          'Development of approaches for the assessment and remediation of contaminated environments.',
+          'We investigate innovative approaches for cleaning contaminated sites affected by pollutants such as crude oil and other hazardous substances, with the aim of restoring ecosystems, conserving biodiversity and improving environmental health.',
       },
     ],
   },
