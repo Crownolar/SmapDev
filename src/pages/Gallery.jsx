@@ -33,7 +33,7 @@ const Gallery = () => {
             description="Browse the gallery by category."
           />
 
-          {/* Filters */}
+          {/* Category filters */}
           <div className="mt-8 flex gap-2 overflow-x-auto pb-2 sm:mt-10 sm:flex-wrap sm:overflow-visible sm:pb-0">
             {categories.map((category) => {
               const isActive = activeCategory === category
@@ -43,6 +43,7 @@ const Gallery = () => {
                   key={category}
                   type="button"
                   onClick={() => setActiveCategory(category)}
+                  aria-pressed={isActive}
                   className={`shrink-0 rounded-full px-4 py-2.5 text-sm font-medium transition-colors sm:px-5 ${
                     isActive
                       ? 'bg-smap-green text-white'
@@ -57,15 +58,14 @@ const Gallery = () => {
 
           {/* Gallery grid */}
           <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
-
             {filteredItems.map((item) => (
               <button
                 key={item.id}
                 type="button"
                 onClick={() => setSelectedImage(item)}
-                className="group overflow-hidden rounded-2xl border border-slate-200 bg-smap-surface text-left transition-shadow duration-300 hover:shadow-xl hover:shadow-slate-900/5 focus:outline-none focus:ring-2 focus:ring-smap-green focus:ring-offset-2"
+                className="group overflow-hidden rounded-2xl border border-slate-200 bg-smap-surface text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-900/5 focus:outline-none focus:ring-2 focus:ring-smap-green focus:ring-offset-2"
+                aria-label={`View ${item.title}`}
               >
-                {/* Image */}
                 <div className="aspect-4/3 overflow-hidden">
                   <img
                     src={item.image}
@@ -75,9 +75,7 @@ const Gallery = () => {
                   />
                 </div>
 
-                {/* Details */}
                 <div className="p-4 sm:p-5">
-
                   <p className="text-xs font-semibold uppercase tracking-[0.15em] text-smap-green">
                     {item.category}
                   </p>
@@ -85,11 +83,9 @@ const Gallery = () => {
                   <h2 className="mt-2 text-sm font-semibold leading-6 text-smap-ink sm:text-base">
                     {item.title}
                   </h2>
-
                 </div>
               </button>
             ))}
-
           </div>
 
           {/* Empty state */}
@@ -109,17 +105,20 @@ const Gallery = () => {
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/95 p-3 sm:p-6 lg:p-8"
           onClick={() => setSelectedImage(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={selectedImage.title}
         >
           <div
             className="relative flex max-h-[95vh] w-full max-w-6xl flex-col items-center"
             onClick={(event) => event.stopPropagation()}
           >
 
-            {/* Close */}
+            {/* Close button */}
             <button
               type="button"
               onClick={() => setSelectedImage(null)}
-              className="absolute right-1 top-1 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-xl text-white transition hover:bg-black/80 sm:right-3 sm:top-3"
+              className="absolute right-1 top-1 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-xl text-white transition hover:bg-black/80 focus:outline-none focus:ring-2 focus:ring-white sm:right-3 sm:top-3"
               aria-label="Close image"
             >
               ×
@@ -136,7 +135,6 @@ const Gallery = () => {
 
             {/* Caption */}
             <div className="mt-4 max-w-2xl px-4 text-center sm:mt-5">
-
               <p className="text-xs font-semibold uppercase tracking-[0.15em] text-smap-green-light">
                 {selectedImage.category}
               </p>
@@ -144,7 +142,6 @@ const Gallery = () => {
               <h2 className="mt-2 text-base font-semibold text-white sm:text-lg">
                 {selectedImage.title}
               </h2>
-
             </div>
 
           </div>

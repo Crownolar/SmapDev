@@ -15,7 +15,7 @@ export const galleryItems = [
     id: 'team-01',
     title: 'SMAPDEV Team',
     category: 'Team',
-    image: '/images/gallery/team-01.jpg',
+    image: '/images/gallery/team1.jpg',
   },
   {
     id: 'team-02',
@@ -27,7 +27,7 @@ export const galleryItems = [
     id: 'event-01',
     title: 'Research Event',
     category: 'Events',
-    image: '/images/gallery/event-01.jpg',
+    image: '/images/gallery/event.jpg',
   },
   {
     id: 'event-02',
