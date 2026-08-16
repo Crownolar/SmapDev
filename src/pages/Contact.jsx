@@ -1,37 +1,37 @@
-import { useRef, useState } from 'react'
-import emailjs from '@emailjs/browser'
-import PageHero from '../components/common/PageHero'
-import SectionHeading from '../components/common/SectionHeading'
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+import PageHero from "../components/common/PageHero";
+import SectionHeading from "../components/common/SectionHeading";
 
 const initialForm = {
-  name: '',
-  email: '',
-  organisation: '',
-  subject: '',
-  message: '',
-}
+  name: "",
+  email: "",
+  organisation: "",
+  subject: "",
+  message: "",
+};
 
 const Contact = () => {
-  const formRef = useRef(null)
+  const formRef = useRef(null);
 
-  const [form, setForm] = useState(initialForm)
-  const [status, setStatus] = useState('idle')
+  const [form, setForm] = useState(initialForm);
+  const [status, setStatus] = useState("idle");
 
   const handleChange = (event) => {
-    const { name, value } = event.target
+    const { name, value } = event.target;
 
-    setStatus('idle')
+    setStatus("idle");
 
     setForm((current) => ({
       ...current,
       [name]: value,
-    }))
-  }
+    }));
+  };
 
   const handleSubmit = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
-    setStatus('sending')
+    setStatus("sending");
 
     try {
       await emailjs.sendForm(
@@ -41,17 +41,17 @@ const Contact = () => {
         {
           publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
         },
-      )
+      );
 
-      setStatus('success')
-      setForm(initialForm)
+      setStatus("success");
+      setForm(initialForm);
     } catch (error) {
-      console.error('EmailJS submission error:', error)
-      setStatus('error')
+      console.error("EmailJS submission error:", error);
+      setStatus("error");
     }
-  }
+  };
 
-  const isSending = status === 'sending'
+  const isSending = status === "sending";
 
   return (
     <>
@@ -63,9 +63,7 @@ const Contact = () => {
 
       <section className="bg-white py-16 sm:py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
           <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
-
             {/* Contact information */}
             <div>
               <SectionHeading
@@ -75,17 +73,16 @@ const Contact = () => {
               />
 
               <div className="mt-8 space-y-7 sm:mt-10">
-
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.15em] text-smap-green">
                     Email
                   </p>
 
                   <a
-                    href="mailto:info@smapdev.com"
+                    href="mailto:smapdev1@gmail.com"
                     className="mt-2 inline-block break-all text-base font-medium text-smap-ink transition-colors hover:text-smap-green sm:break-normal"
                   >
-                    info@smapdev.com
+                    smapdev1@gmail.com
                   </a>
                 </div>
 
@@ -99,15 +96,13 @@ const Contact = () => {
                     Network.
                   </p>
                 </div>
-
               </div>
             </div>
 
             {/* Contact form */}
             <div className="rounded-2xl border border-slate-200 bg-smap-surface p-5 sm:rounded-3xl sm:p-8 lg:p-10">
-
               {/* Success message */}
-              {status === 'success' && (
+              {status === "success" && (
                 <div
                   role="status"
                   aria-live="polite"
@@ -118,14 +113,14 @@ const Contact = () => {
                   </p>
 
                   <p className="mt-1 text-sm leading-6 text-green-700">
-                    Thank you for contacting SMAPDEV. We'll get back to you
-                    as soon as possible.
+                    Thank you for contacting SMAPDEV. We'll get back to you as
+                    soon as possible.
                   </p>
                 </div>
               )}
 
               {/* Error message */}
-              {status === 'error' && (
+              {status === "error" && (
                 <div
                   role="alert"
                   aria-live="assertive"
@@ -147,10 +142,8 @@ const Contact = () => {
                 onSubmit={handleSubmit}
                 className="space-y-5 sm:space-y-6"
               >
-
                 {/* Name + Email */}
                 <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
-
                   <div>
                     <label
                       htmlFor="name"
@@ -192,12 +185,10 @@ const Contact = () => {
                       placeholder="you@example.com"
                     />
                   </div>
-
                 </div>
 
                 {/* Organisation + Subject */}
                 <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
-
                   <div>
                     <label
                       htmlFor="organisation"
@@ -237,7 +228,6 @@ const Contact = () => {
                       placeholder="What would you like to discuss?"
                     />
                   </div>
-
                 </div>
 
                 {/* Message */}
@@ -267,19 +257,15 @@ const Contact = () => {
                   disabled={isSending}
                   className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-smap-green px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-smap-green-dark focus:outline-none focus:ring-2 focus:ring-smap-green focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
                 >
-                  {isSending ? 'Sending...' : 'Send message'}
+                  {isSending ? "Sending..." : "Send message"}
                 </button>
-
               </form>
-
             </div>
-
           </div>
-
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;
