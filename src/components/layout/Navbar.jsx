@@ -1,56 +1,52 @@
-import { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 const researchLinks = [
   {
-    label: 'Research Areas',
-    description: 'Explore our research focus',
-    to: '/research-areas',
+    label: "Research Areas",
+    description: "Explore our research focus",
+    to: "/research-areas",
   },
   {
-    label: 'Research Outcomes',
-    description: 'Publications and outcomes',
-    to: '/research-outcomes',
+    label: "Research Outcomes",
+    description: "Publications and outcomes",
+    to: "/research-outcomes",
   },
-]
+];
 
 const primaryLinks = [
-  { label: 'Home', to: '/' },
-  { label: 'About', to: '/about' },
-  { label: 'Our Team', to: '/team' },
-  { label: 'Collaboration', to: '/collaboration' },
-  { label: 'Mentorship', to: '/mentorship' },
-  { label: 'Gallery', to: '/gallery' },
-]
+  { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "Our Team", to: "/team" },
+  { label: "Collaboration", to: "/collaboration" },
+  { label: "Mentorship", to: "/mentorship" },
+  { label: "Gallery", to: "/gallery" },
+];
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isResearchOpen, setIsResearchOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isResearchOpen, setIsResearchOpen] = useState(false);
 
   const closeMenu = () => {
-    setIsMenuOpen(false)
-    setIsResearchOpen(false)
-  }
+    setIsMenuOpen(false);
+    setIsResearchOpen(false);
+  };
 
   const navLinkStyles = ({ isActive }) =>
     `relative rounded-sm py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-smap-green focus:ring-offset-2 ${
-      isActive
-        ? 'text-smap-green'
-        : 'text-slate-700 hover:text-smap-green'
-    }`
+      isActive ? "text-smap-green" : "text-slate-700 hover:text-smap-green"
+    }`;
 
   const researchButtonStyles = `
     flex items-center gap-1 rounded-sm py-2 text-sm font-medium
     text-slate-700 transition-colors duration-200
     hover:text-smap-green
     focus:outline-none focus:ring-2 focus:ring-smap-green focus:ring-offset-2
-  `
+  `;
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-md">
-
       <div className="mx-auto flex min-h-20 max-w-7xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8">
-
         {/* Logo */}
         <Link
           to="/"
@@ -58,11 +54,17 @@ const Navbar = () => {
           className="flex shrink-0 items-center gap-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-smap-green focus:ring-offset-2"
           aria-label="SMAPDEV home"
         >
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-smap-green text-lg font-bold text-white">
+          {/* <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-smap-green text-lg font-bold text-white">
             S
-          </div>
+          </div> */}
 
-          <div className="leading-none">
+          <img
+            src="/images/logo/smapdev_logo_w_name copy.png"
+            alt="SMAPDEV Research Network"
+            className="h-11 w-auto object-contain"
+          />
+
+          {/* <div className="leading-none">
             <span className="block text-lg font-bold tracking-tight text-slate-900">
               SMAPDEV
             </span>
@@ -70,7 +72,7 @@ const Navbar = () => {
             <span className="mt-1 hidden text-[10px] font-medium uppercase tracking-[0.18em] text-slate-500 sm:block">
               Research Network
             </span>
-          </div>
+          </div> */}
         </Link>
 
         {/* Desktop Navigation */}
@@ -78,20 +80,14 @@ const Navbar = () => {
           className="hidden items-center gap-5 lg:flex"
           aria-label="Main navigation"
         >
-
           {primaryLinks.slice(0, 2).map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              className={navLinkStyles}
-            >
+            <NavLink key={link.to} to={link.to} className={navLinkStyles}>
               {link.label}
             </NavLink>
           ))}
 
           {/* Research dropdown */}
           <div className="relative">
-
             <button
               type="button"
               onClick={() => setIsResearchOpen((current) => !current)}
@@ -100,10 +96,9 @@ const Navbar = () => {
               aria-haspopup="menu"
             >
               Research
-
               <svg
                 className={`h-4 w-4 transition-transform duration-200 ${
-                  isResearchOpen ? 'rotate-180' : ''
+                  isResearchOpen ? "rotate-180" : ""
                 }`}
                 viewBox="0 0 20 20"
                 fill="currentColor"
@@ -123,7 +118,6 @@ const Navbar = () => {
                 role="menu"
               >
                 <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-xl shadow-slate-900/10">
-
                   {researchLinks.map((link) => (
                     <NavLink
                       key={link.to}
@@ -133,8 +127,8 @@ const Navbar = () => {
                       className={({ isActive }) =>
                         `block rounded-xl px-4 py-3 transition-colors ${
                           isActive
-                            ? 'bg-smap-surface text-smap-green'
-                            : 'text-slate-700 hover:bg-smap-surface hover:text-smap-green'
+                            ? "bg-smap-surface text-smap-green"
+                            : "text-slate-700 hover:bg-smap-surface hover:text-smap-green"
                         }`
                       }
                     >
@@ -147,19 +141,13 @@ const Navbar = () => {
                       </span>
                     </NavLink>
                   ))}
-
                 </div>
               </div>
             )}
-
           </div>
 
           {primaryLinks.slice(2).map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              className={navLinkStyles}
-            >
+            <NavLink key={link.to} to={link.to} className={navLinkStyles}>
               {link.label}
             </NavLink>
           ))}
@@ -170,14 +158,13 @@ const Navbar = () => {
             className={({ isActive }) =>
               `rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-smap-green focus:ring-offset-2 ${
                 isActive
-                  ? 'bg-smap-green-dark text-white'
-                  : 'bg-smap-green text-white hover:bg-smap-green-dark hover:shadow-lg hover:shadow-slate-900/10'
+                  ? "bg-smap-green-dark text-white"
+                  : "bg-smap-green text-white hover:bg-smap-green-dark hover:shadow-lg hover:shadow-slate-900/10"
               }`
             }
           >
             Contact
           </NavLink>
-
         </nav>
 
         {/* Mobile Menu Button */}
@@ -185,7 +172,7 @@ const Navbar = () => {
           type="button"
           onClick={() => setIsMenuOpen((current) => !current)}
           className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-slate-200 text-slate-700 transition-colors hover:bg-smap-surface focus:outline-none focus:ring-2 focus:ring-smap-green focus:ring-offset-2 lg:hidden"
-          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-navigation"
         >
@@ -198,10 +185,7 @@ const Navbar = () => {
               strokeWidth="1.8"
               aria-hidden="true"
             >
-              <path
-                strokeLinecap="round"
-                d="M6 6l12 12M18 6L6 18"
-              />
+              <path strokeLinecap="round" d="M6 6l12 12M18 6L6 18" />
             </svg>
           ) : (
             <svg
@@ -212,14 +196,10 @@ const Navbar = () => {
               strokeWidth="1.8"
               aria-hidden="true"
             >
-              <path
-                strokeLinecap="round"
-                d="M4 7h16M4 12h16M4 17h16"
-              />
+              <path strokeLinecap="round" d="M4 7h16M4 12h16M4 17h16" />
             </svg>
           )}
         </button>
-
       </div>
 
       {/* Mobile Navigation */}
@@ -233,7 +213,6 @@ const Navbar = () => {
             aria-label="Mobile navigation"
           >
             <div className="flex flex-col">
-
               {primaryLinks.slice(0, 2).map((link) => (
                 <NavLink
                   key={link.to}
@@ -247,7 +226,6 @@ const Navbar = () => {
 
               {/* Mobile Research */}
               <div className="border-y border-slate-100 py-1">
-
                 <button
                   type="button"
                   onClick={() => setIsResearchOpen((current) => !current)}
@@ -258,7 +236,7 @@ const Navbar = () => {
 
                   <svg
                     className={`h-4 w-4 transition-transform duration-200 ${
-                      isResearchOpen ? 'rotate-180' : ''
+                      isResearchOpen ? "rotate-180" : ""
                     }`}
                     viewBox="0 0 20 20"
                     fill="currentColor"
@@ -274,7 +252,6 @@ const Navbar = () => {
 
                 {isResearchOpen && (
                   <div className="mb-2 ml-2 border-l border-slate-200 pl-4">
-
                     {researchLinks.map((link) => (
                       <NavLink
                         key={link.to}
@@ -283,18 +260,16 @@ const Navbar = () => {
                         className={({ isActive }) =>
                           `block rounded-sm py-2 text-sm transition-colors ${
                             isActive
-                              ? 'font-medium text-smap-green'
-                              : 'text-slate-600 hover:text-smap-green'
+                              ? "font-medium text-smap-green"
+                              : "text-slate-600 hover:text-smap-green"
                           }`
                         }
                       >
                         {link.label}
                       </NavLink>
                     ))}
-
                   </div>
                 )}
-
               </div>
 
               {primaryLinks.slice(2).map((link) => (
@@ -314,21 +289,19 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   `mt-4 rounded-full px-5 py-3 text-center text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-smap-green focus:ring-offset-2 ${
                     isActive
-                      ? 'bg-smap-green-dark text-white'
-                      : 'bg-smap-green text-white hover:bg-smap-green-dark'
+                      ? "bg-smap-green-dark text-white"
+                      : "bg-smap-green text-white hover:bg-smap-green-dark"
                   }`
                 }
               >
                 Contact
               </NavLink>
-
             </div>
           </nav>
         </div>
       )}
-
     </header>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
