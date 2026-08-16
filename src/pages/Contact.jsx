@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import emailjs from '@emailjs/browser'
 import PageHero from '../components/common/PageHero'
 import SectionHeading from '../components/common/SectionHeading'
 
@@ -11,13 +12,15 @@ const initialForm = {
 }
 
 const Contact = () => {
+  const formRef = useRef(null)
+
   const [form, setForm] = useState(initialForm)
-  const [submitted, setSubmitted] = useState(false)
+  const [status, setStatus] = useState('idle')
 
   const handleChange = (event) => {
     const { name, value } = event.target
 
-    setSubmitted(false)
+    setStatus('idle')
 
     setForm((current) => ({
       ...current,
@@ -25,12 +28,30 @@ const Contact = () => {
     }))
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
 
-    setSubmitted(true)
-    setForm(initialForm)
+    setStatus('sending')
+
+    try {
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        {
+          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+        },
+      )
+
+      setStatus('success')
+      setForm(initialForm)
+    } catch (error) {
+      console.error('EmailJS submission error:', error)
+      setStatus('error')
+    }
   }
+
+  const isSending = status === 'sending'
 
   return (
     <>
@@ -82,25 +103,50 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Form */}
+            {/* Contact form */}
             <div className="rounded-2xl border border-slate-200 bg-smap-surface p-5 sm:rounded-3xl sm:p-8 lg:p-10">
 
-              {submitted && (
+              {/* Success message */}
+              {status === 'success' && (
                 <div
                   role="status"
+                  aria-live="polite"
                   className="mb-6 rounded-2xl border border-green-200 bg-green-50 p-4 sm:mb-8"
                 >
                   <p className="text-sm font-medium text-green-800">
-                    Your message has been submitted successfully.
+                    Your message has been sent successfully.
                   </p>
 
                   <p className="mt-1 text-sm leading-6 text-green-700">
-                    We'll get back to you as soon as possible.
+                    Thank you for contacting SMAPDEV. We'll get back to you
+                    as soon as possible.
                   </p>
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+              {/* Error message */}
+              {status === 'error' && (
+                <div
+                  role="alert"
+                  aria-live="assertive"
+                  className="mb-6 rounded-2xl border border-red-200 bg-red-50 p-4 sm:mb-8"
+                >
+                  <p className="text-sm font-medium text-red-800">
+                    We couldn't send your message.
+                  </p>
+
+                  <p className="mt-1 text-sm leading-6 text-red-700">
+                    Please try again. If the problem continues, you can contact
+                    us directly by email.
+                  </p>
+                </div>
+              )}
+
+              <form
+                ref={formRef}
+                onSubmit={handleSubmit}
+                className="space-y-5 sm:space-y-6"
+              >
 
                 {/* Name + Email */}
                 <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
@@ -218,9 +264,10 @@ const Contact = () => {
                 {/* Submit */}
                 <button
                   type="submit"
-                  className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-smap-green px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-smap-green-dark focus:outline-none focus:ring-2 focus:ring-smap-green focus:ring-offset-2 sm:w-auto"
+                  disabled={isSending}
+                  className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-smap-green px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-smap-green-dark focus:outline-none focus:ring-2 focus:ring-smap-green focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
                 >
-                  Send message
+                  {isSending ? 'Sending...' : 'Send message'}
                 </button>
 
               </form>
